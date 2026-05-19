@@ -12,6 +12,12 @@ forbidden-apple-tavern-full-demo.html
 
 The demo uses hosted image URLs from GitHub raw so it can act like a real image-hosted theme preview.
 
+## SillyTavern theme files
+
+- `forbidden-apple-tavern-centered-avatar-theme.json`: full theme JSON with char/user avatars visible and centered above each message.
+- `forbidden-apple-centered-avatar-overrides.css`: small final override layer for centered avatar frames.
+- `forbidden-apple-centered-avatar-preview.html`: local mock preview for the centered-avatar theme, without opening a real SillyTavern instance.
+
 ## Hosted frame assets
 
 The six v5 three-slice PNG assets are stored in:

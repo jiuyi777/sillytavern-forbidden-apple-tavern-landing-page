@@ -1,0 +1,164 @@
+/* Forbidden Apple Tavern centered avatar overrides.
+   Put this after the existing Forbidden Apple Tavern theme CSS.
+   It keeps char/user avatar frames visible and centers the avatar image inside each frame. */
+
+:root {
+  --fa-user-frame-image: url("https://files.catbox.moe/5t9ep9.png");
+  --fa-char-frame-image: url("https://files.catbox.moe/5ppssu.png");
+}
+
+body[data-user-frame="1"] { --fa-user-frame-image: url("https://files.catbox.moe/5t9ep9.png"); }
+body[data-user-frame="2"] { --fa-user-frame-image: url("https://files.catbox.moe/7oqr21.png"); }
+body[data-user-frame="3"] { --fa-user-frame-image: url("https://files.catbox.moe/paja4f.png"); }
+body[data-user-frame="4"] { --fa-user-frame-image: url("https://files.catbox.moe/765siq.png"); }
+body[data-user-frame="5"] { --fa-user-frame-image: url("https://files.catbox.moe/s4ie4q.png"); }
+body[data-user-frame="6"] { --fa-user-frame-image: url("https://files.catbox.moe/zv5yue.png"); }
+body[data-user-frame="7"] { --fa-user-frame-image: url("https://files.catbox.moe/is5ksf.png"); }
+body[data-user-frame="8"] { --fa-user-frame-image: url("https://files.catbox.moe/zaekzk.png"); }
+body[data-user-frame="9"] { --fa-user-frame-image: url("https://files.catbox.moe/hq9p1u.png"); }
+
+body[data-char-frame="1"] { --fa-char-frame-image: url("https://files.catbox.moe/5ppssu.png"); }
+body[data-char-frame="2"] { --fa-char-frame-image: url("https://files.catbox.moe/5nr1g2.png"); }
+body[data-char-frame="3"] { --fa-char-frame-image: url("https://files.catbox.moe/qkomzh.png"); }
+body[data-char-frame="4"] { --fa-char-frame-image: url("https://files.catbox.moe/9ygo2l.png"); }
+body[data-char-frame="5"] { --fa-char-frame-image: url("https://files.catbox.moe/ac2d11.png"); }
+body[data-char-frame="6"] { --fa-char-frame-image: url("https://files.catbox.moe/ye9nui.png"); }
+body[data-char-frame="7"] { --fa-char-frame-image: url("https://files.catbox.moe/j87d9j.png"); }
+body[data-char-frame="8"] { --fa-char-frame-image: url("https://files.catbox.moe/rxtv2c.png"); }
+body[data-char-frame="9"] { --fa-char-frame-image: url("https://files.catbox.moe/dtj6g9.png"); }
+
+body .mes {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: var(--fa-chat-width, min(860px, calc(100% - 28px))) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body .mes[is_user="true"],
+body .mes[is_user="false"] {
+  align-items: center !important;
+}
+
+body .mesAvatarWrapper,
+body .last_mes .mesAvatarWrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  order: 0 !important;
+  width: 100% !important;
+  min-height: 96px !important;
+  margin: 0 auto -6px !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+}
+
+body .mes .avatar {
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 74px !important;
+  height: 74px !important;
+  min-width: 74px !important;
+  min-height: 74px !important;
+  margin: 0 auto !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  overflow: visible !important;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 248, 237, 0.72), rgba(255, 242, 214, 0.28) 58%, transparent 60%) !important;
+  box-shadow: none !important;
+}
+
+body .mes .avatar img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+  max-width: 58px !important;
+  max-height: 58px !important;
+  transform: translate(-50%, -50%) !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 242, 214, 0.86) !important;
+  z-index: 1 !important;
+  background: rgba(255, 248, 237, 0.68) !important;
+}
+
+body .mes .avatar::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -3px !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle at 58% 26%, rgba(255, 255, 255, 0.82) 0 5px, transparent 6px),
+    linear-gradient(135deg, rgba(255, 248, 237, 0.72), rgba(158, 23, 23, 0.16)) !important;
+  z-index: 0 !important;
+}
+
+body .mes .avatar::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -42px !important;
+  display: block !important;
+  pointer-events: none !important;
+  background-image: var(--fa-char-frame-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+  filter: drop-shadow(0 9px 12px rgba(74, 36, 25, 0.18)) !important;
+  z-index: 2 !important;
+}
+
+body .mes[is_user="true"] .avatar::after {
+  background-image: var(--fa-user-frame-image) !important;
+}
+
+body .mes .mes_block {
+  order: 1 !important;
+  width: min(100%, var(--fa-chat-width, 860px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body .mes .ch_name {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+@media screen and (max-width: 700px) {
+  body .mesAvatarWrapper,
+  body .last_mes .mesAvatarWrapper {
+    min-height: 82px !important;
+    margin-bottom: -4px !important;
+  }
+
+  body .mes .avatar {
+    width: 62px !important;
+    height: 62px !important;
+    min-width: 62px !important;
+    min-height: 62px !important;
+  }
+
+  body .mes .avatar img {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
+
+  body .mes .avatar::after {
+    inset: -34px !important;
+  }
+}
