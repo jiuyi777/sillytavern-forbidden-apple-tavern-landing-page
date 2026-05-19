@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forbidden Apple Tavern Fixed Caps Chat Frames</title>
+  <style>
+    :root {
+      --fa-red-dark: #541115;
+      --fa-text: #2a1714;
+      --fa-muted: #7b5a50;
+      --fa-char-top: url("./chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-top.png");
+      --fa-char-mid: url("./chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-middle.png");
+      --fa-char-bottom: url("./chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-bottom.png");
+      --fa-user-top: url("./chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-top.png");
+      --fa-user-mid: url("./chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-middle.png");
+      --fa-user-bottom: url("./chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-bottom.png");
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--fa-text);
+      font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 8% 18%, rgba(158, 23, 23, .08) 0 54px, transparent 55px),
+        radial-gradient(circle at 90% 80%, rgba(50, 77, 53, .10) 0 70px, transparent 71px),
+        linear-gradient(135deg, #fffaf3 0%, #fbf3e4 48%, #f1e4d4 100%);
+    }
+
+    body { padding: 28px 18px 42px; }
+
+    .wrap {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+      color: var(--fa-red-dark);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--fa-muted);
+    }
+
+    .preview {
+      border: 3px solid rgba(96, 25, 26, .22);
+      border-radius: 24px;
+      padding: 30px clamp(16px, 4vw, 54px) 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 254, 248, .90), rgba(255, 248, 234, .82)),
+        radial-gradient(circle at 7% 16%, rgba(143, 31, 36, .06) 0 48px, transparent 49px);
+      box-shadow:
+        inset 0 0 0 2px rgba(255, 255, 255, .66),
+        8px 8px 0 rgba(96, 25, 26, .06),
+        0 16px 34px rgba(74, 36, 25, .10);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 34px;
+    }
+
+    .solo-row {
+      display: block;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px dashed rgba(96, 25, 26, .18);
+    }
+
+    .solo-row .frame {
+      --w: 650px;
+      --mid-min: 360px;
+    }
+
+    .row + .row {
+      margin-top: 32px;
+      padding-top: 26px;
+      border-top: 1px dashed rgba(96, 25, 26, .18);
+    }
+
+    .row .frame.char {
+      --w: 520px;
+      --top-h: 163px;
+      --bottom-h: 134px;
+      --pad-x: 74px;
+    }
+
+    .label {
+      margin: 0 0 10px;
+      text-align: center;
+      color: var(--fa-muted);
+      font-size: 13px;
+    }
+
+    .frame {
+      --top: var(--fa-char-top);
+      --mid: var(--fa-char-mid);
+      --bottom: var(--fa-char-bottom);
+      --w: 650px;
+      --top-h: 203px;
+      --mid-min: 135px;
+      --bottom-h: 168px;
+      --pad-x: 92px;
+      --join-top: 14px;
+      --join-bottom: 10px;
+      display: grid;
+      grid-template-rows: var(--top-h) minmax(var(--mid-min), auto) var(--bottom-h);
+      width: min(100%, var(--w));
+      margin: 0 auto;
+      filter: drop-shadow(0 12px 18px rgba(74, 36, 25, .16));
+    }
+
+    .frame.user {
+      --top: var(--fa-user-top);
+      --mid: var(--fa-user-mid);
+      --bottom: var(--fa-user-bottom);
+      --w: 520px;
+      --top-h: 169px;
+      --mid-min: 130px;
+      --bottom-h: 139px;
+      --pad-x: 78px;
+      --join-top: 48px;
+      --join-bottom: 42px;
+      position: relative;
+      display: block;
+      min-height: 360px;
+    }
+
+    .frame.user .slice {
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+
+    .frame.user .top {
+      top: 0;
+      height: var(--top-h);
+      z-index: 3;
+    }
+
+    .frame.user .middle {
+      top: calc(var(--top-h) - var(--join-top));
+      bottom: calc(var(--bottom-h) - var(--join-bottom));
+      height: auto;
+      margin: 0;
+      z-index: 1;
+    }
+
+    .frame.user .bottom {
+      bottom: 0;
+      height: var(--bottom-h);
+      margin: 0;
+      z-index: 3;
+    }
+
+    .frame.user .content {
+      position: relative;
+      z-index: 4;
+      padding: 132px var(--pad-x) 118px;
+    }
+
+    .slice {
+      grid-column: 1;
+      z-index: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .top {
+      grid-row: 1;
+      z-index: 3;
+      background-image: var(--top);
+      background-size: 100% auto;
+      background-position: center top;
+    }
+
+    .middle {
+      display: block;
+      grid-row: 2;
+      z-index: 1;
+      background-image: var(--mid);
+      background-size: 100% 100%;
+      background-position: center;
+      margin-top: calc(var(--join-top) * -1);
+      margin-bottom: calc(var(--join-bottom) * -1);
+    }
+
+    .bottom {
+      grid-row: 3;
+      z-index: 2;
+      background-image: var(--bottom);
+      background-size: 100% auto;
+      background-position: center bottom;
+      margin-top: calc(var(--join-bottom) * -1);
+    }
+
+    .content {
+      grid-column: 1;
+      grid-row: 2;
+      z-index: 4;
+      align-self: center;
+      padding: 10px var(--pad-x) 18px;
+    }
+
+    .ch_name {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: baseline;
+      margin: 0 0 8px;
+      color: var(--fa-red-dark);
+      text-align: center;
+    }
+
+    .name_text { font-weight: 800; }
+
+    .timestamp {
+      color: var(--fa-muted);
+      font-size: 12px;
+    }
+
+    .mes_text {
+      font-size: 15px;
+      line-height: 1.62;
+    }
+
+    .mes_text p { margin: 0 0 .72em; }
+    .mes_text p:last-child { margin-bottom: 0; }
+
+    .code-panel {
+      margin-top: 22px;
+      border: 2px solid rgba(96, 25, 26, .20);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255, 254, 248, .78);
+      box-shadow: 0 10px 24px rgba(74, 36, 25, .08);
+    }
+
+    .code-title {
+      padding: 10px 14px;
+      color: var(--fa-red-dark);
+      font-weight: 800;
+      border-bottom: 1px solid rgba(96, 25, 26, .16);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .70), rgba(255, 242, 214, .62));
+    }
+
+    pre {
+      margin: 0;
+      max-height: 300px;
+      overflow: auto;
+      padding: 16px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font: 13px/1.52 Consolas, "Cascadia Mono", monospace;
+      color: #321b17;
+    }
+
+    @media (max-width: 820px) {
+      .row { grid-template-columns: 1fr; }
+      .frame { --w: 460px; }
+      .frame.user { --w: 390px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>禁果酒馆 Forbidden Apple Tavern</h1>
+      <p>上下固定，中间图片纵向拉伸；char 和 user 都已改</p>
+    </header>
+
+    <section class="preview" aria-label="fixed cap chat frame preview">
+      <div class="solo-row">
+        <p class="label">char 超长消息拉伸测试</p>
+        <div class="frame char">
+          <div class="slice top"></div>
+          <div class="slice middle"></div>
+          <div class="slice bottom"></div>
+          <div class="content">
+            <div class="ch_name"><strong class="name_text">Assistant</strong><span class="timestamp">2026/5/14 21:30</span></div>
+            <div class="mes_text">
+              <p>这是一段专门用来把 char 聊天框拉很长的测试文本。顶部的苹果、蕾丝、藤线和纸张上缘应该固定在最上方，不会随着正文高度被拉扁。</p>
+              <p>中间现在不再使用切出来的图片，锁扣、边缘阴影、小红籽和叶子都不会出现在中段，只保留干净奶油纸面。</p>
+              <p>继续增加内容，观察底部蜡封、叶子、小红籽和纸边装饰是否仍然保持在底部。它们不应该出现在中段，也不应该被纵向拉长。</p>
+              <p>这类聊天框实际放进酒馆时，短消息会比较紧凑；长消息则应该像一张可以继续往下展开的手账便签，而不是把整张贴纸直接拽变形。</p>
+              <p>如果这一版过长时中段纹理太重复，下一步可以再单独生成一张更干净的中段纸面，只保留轻微渐变、纤维纹理和左右细边。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <article>
+          <p class="label">char 短消息</p>
+          <div class="frame char">
+            <div class="slice top"></div>
+            <div class="slice middle"></div>
+            <div class="slice bottom"></div>
+            <div class="content">
+              <div class="ch_name"><strong class="name_text">Assistant</strong><span class="timestamp">2026/5/14 21:24</span></div>
+              <div class="mes_text">
+                <p>顶部苹果和底部蜡封固定，中间纸面负责撑开。</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <p class="label">user 短消息</p>
+          <div class="frame user">
+            <div class="slice top"></div>
+            <div class="slice middle"></div>
+            <div class="slice bottom"></div>
+            <div class="content">
+              <div class="ch_name"><strong class="name_text">User</strong><span class="timestamp">2026/5/14 21:25</span></div>
+              <div class="mes_text">
+                <p>红色 user 框也改成上下固定，右侧苹果皮和蝴蝶结不会被拉扁。</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="row">
+        <article>
+          <p class="label">char 长消息</p>
+          <div class="frame char">
+            <div class="slice top"></div>
+            <div class="slice middle"></div>
+            <div class="slice bottom"></div>
+            <div class="content">
+              <div class="ch_name"><strong class="name_text">Assistant</strong><span class="timestamp">2026/5/14 21:26</span></div>
+              <div class="mes_text">
+                <p>这是一段故意变长的消息，用来测试中段纵向拉伸。上面的苹果、蕾丝和藤线保持在顶部，下面的蜡封、叶子和纸边保持在底部。</p>
+                <p>中间是一张单独切出来的纸面图片，所以拉伸发生在干净区域里。</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <p class="label">user 长消息</p>
+          <div class="frame user">
+            <div class="slice top"></div>
+            <div class="slice middle"></div>
+            <div class="slice bottom"></div>
+            <div class="content">
+              <div class="ch_name"><strong class="name_text">User</strong><span class="timestamp">2026/5/14 21:27</span></div>
+              <div class="mes_text">
+                <p>这里同样测试红色 user 聊天框的长内容。右上角苹果皮卷和右下角丝带不会被直接拉伸。</p>
+                <p>短回复会更紧凑，长回复会从中段往下长。</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="code-panel" aria-label="implementation note">
+      <div class="code-title">实现方式</div>
+      <pre>结构是 top / middle / bottom 三张图：
+- top 和 bottom 固定高度，只缩放到框宽，不随文字高度变化。
+- middle 是单独切出的纸面图片，负责纵向拉伸。
+- user 和 char 都是同一套结构，只换三张素材和尺寸参数。</pre>
+    </section>
+  </div>
+</body>
+</html>

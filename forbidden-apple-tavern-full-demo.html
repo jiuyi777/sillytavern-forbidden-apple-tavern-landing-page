@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forbidden Apple Tavern - Full SillyTavern Demo</title>
+  <style>
+    :root {
+      --fa-char-top: url("https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-top.png");
+      --fa-char-mid: url("https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-middle.png");
+      --fa-char-bottom: url("https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-bottom.png");
+      --fa-user-top: url("https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-top.png");
+      --fa-user-mid: url("https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-middle.png");
+      --fa-user-bottom: url("https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-bottom.png");
+      --ink: #2a1714;
+      --muted: #72534a;
+      --red: #8f1f24;
+      --red-dark: #4e1114;
+      --green: #304a35;
+      --gold: #b98a46;
+      --paper: #fff8ea;
+      --paper-strong: #fffdf7;
+      --line: rgba(78, 17, 20, .22);
+      --shadow: rgba(74, 36, 25, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      color: var(--ink);
+      font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 7% 18%, rgba(143, 31, 36, .10) 0 72px, transparent 74px),
+        radial-gradient(circle at 92% 85%, rgba(48, 74, 53, .12) 0 82px, transparent 84px),
+        linear-gradient(135deg, #fffaf2 0%, #f3e4cf 52%, #e2d2bd 100%);
+    }
+
+    body { min-height: 100vh; }
+
+    button,
+    textarea,
+    input {
+      font: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 58px 224px minmax(0, 1fr) 256px;
+      grid-template-rows: 52px minmax(0, 1fr) 78px;
+    }
+
+    .topbar {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 18px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .92), rgba(249, 235, 212, .84)),
+        linear-gradient(90deg, rgba(78, 17, 20, .14), rgba(183, 53, 53, .10), rgba(48, 74, 53, .10));
+      box-shadow: 0 8px 22px var(--shadow);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 260px;
+      color: var(--red-dark);
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid rgba(78, 17, 20, .28);
+      background:
+        radial-gradient(circle at 34% 32%, #fff5db 0 18%, transparent 19%),
+        radial-gradient(circle at 54% 54%, #b73535 0 45%, #7e1d20 46% 100%);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.34);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(96, 25, 26, .22);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--red-dark);
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(244,232,211,.72));
+      box-shadow: 0 4px 10px rgba(74, 36, 25, .08);
+      cursor: pointer;
+    }
+
+    .icon-btn:hover,
+    .icon-btn.active {
+      color: #fffaf2;
+      background: linear-gradient(180deg, #9e2d31, #681a1e);
+    }
+
+    .rail {
+      grid-row: 2 / 4;
+      padding: 12px 8px;
+      border-right: 1px solid var(--line);
+      background: rgba(255, 246, 226, .74);
+    }
+
+    .rail .icon-btn {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 10px;
+    }
+
+    .sidebar,
+    .rightbar {
+      min-height: 0;
+      overflow: auto;
+      border-right: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(143, 31, 36, .08), transparent 28%),
+        rgba(255, 248, 235, .82);
+    }
+
+    .rightbar {
+      border-right: 0;
+      border-left: 1px solid var(--line);
+    }
+
+    .panel-title {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 14px 14px 10px;
+      color: var(--red-dark);
+      font-weight: 850;
+      background: rgba(255, 248, 235, .94);
+      border-bottom: 1px solid rgba(96, 25, 26, .14);
+    }
+
+    .persona-list,
+    .setting-list {
+      padding: 12px;
+    }
+
+    .persona {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 9px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(96, 25, 26, .14);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .66);
+    }
+
+    .persona.active {
+      border-color: rgba(143, 31, 36, .38);
+      box-shadow: 0 8px 16px rgba(74, 36, 25, .08);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 2px solid rgba(96, 25, 26, .18);
+      background:
+        radial-gradient(circle at 60% 38%, rgba(255, 255, 255, .72), transparent 18%),
+        linear-gradient(135deg, #9e2d31, #304a35);
+    }
+
+    .persona strong,
+    .setting strong {
+      display: block;
+      color: var(--red-dark);
+      font-size: 13px;
+    }
+
+    .persona span,
+    .setting span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .setting {
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(96, 25, 26, .18);
+    }
+
+    .switch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 999px;
+      background: #314a35;
+      padding: 3px;
+    }
+
+    .toggle::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fffdf7;
+      margin-left: 18px;
+    }
+
+    .chat-shell {
+      min-width: 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .54), rgba(255, 248, 234, .62)),
+        radial-gradient(circle at 12% 8%, rgba(143, 31, 36, .06), transparent 30%);
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(96, 25, 26, .14);
+    }
+
+    .chat-title {
+      min-width: 0;
+    }
+
+    .chat-title strong {
+      display: block;
+      color: var(--red-dark);
+      font-size: 16px;
+    }
+
+    .chat-title span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .segmented {
+      display: flex;
+      border: 1px solid rgba(96, 25, 26, .20);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 253, 247, .70);
+    }
+
+    .segmented button {
+      border: 0;
+      border-right: 1px solid rgba(96, 25, 26, .14);
+      background: transparent;
+      color: var(--muted);
+      padding: 7px 10px;
+      cursor: pointer;
+    }
+
+    .segmented button:last-child { border-right: 0; }
+
+    .segmented button.active {
+      color: #fffaf2;
+      background: var(--red);
+    }
+
+    .messages {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      padding: 24px clamp(14px, 3vw, 38px) 30px;
+    }
+
+    .message {
+      --top: var(--fa-char-top);
+      --mid: var(--fa-char-mid);
+      --bottom: var(--fa-char-bottom);
+      --w: 700px;
+      --top-h: 203px;
+      --bottom-h: 168px;
+      --pad-x: 92px;
+      --pad-top: 150px;
+      --pad-bottom: 116px;
+      position: relative;
+      width: min(100%, var(--w));
+      min-height: 250px;
+      margin: 0 auto 26px 0;
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      background: var(--mid) center / 100% 100% no-repeat;
+      filter: drop-shadow(0 12px 18px rgba(74, 36, 25, .16));
+    }
+
+    .message.user {
+      --top: var(--fa-user-top);
+      --mid: var(--fa-user-mid);
+      --bottom: var(--fa-user-bottom);
+      --w: 590px;
+      --top-h: 169px;
+      --bottom-h: 139px;
+      --pad-x: 78px;
+      --pad-top: 136px;
+      --pad-bottom: 108px;
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .message::before,
+    .message::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .message::before {
+      top: 0;
+      height: var(--top-h);
+      background-image: var(--top);
+      background-size: 100% auto;
+      background-position: center top;
+    }
+
+    .message::after {
+      bottom: 0;
+      height: var(--bottom-h);
+      background-image: var(--bottom);
+      background-size: 100% auto;
+      background-position: center bottom;
+    }
+
+    .message-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .message-name {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: baseline;
+      color: var(--red-dark);
+      font-weight: 850;
+      margin-bottom: 8px;
+    }
+
+    .message-name span {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .message p {
+      margin: 0 0 .72em;
+      font-size: 15px;
+      line-height: 1.62;
+    }
+
+    .message p:last-child { margin-bottom: 0; }
+
+    .composer {
+      grid-column: 3 / 4;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 18px;
+      border-top: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .90), rgba(247, 231, 205, .86));
+    }
+
+    .composer textarea {
+      width: 100%;
+      min-height: 48px;
+      max-height: 80px;
+      resize: none;
+      color: var(--ink);
+      border: 1px solid rgba(96, 25, 26, .24);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: rgba(255, 253, 247, .88);
+      outline: none;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.58);
+    }
+
+    .send {
+      border: 0;
+      border-radius: 8px;
+      padding: 13px 18px;
+      color: #fffaf2;
+      background: linear-gradient(180deg, #9e2d31, #5c1519);
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(78, 17, 20, .20);
+    }
+
+    .density-compact .message {
+      --pad-top: 118px;
+      --pad-bottom: 90px;
+      min-height: 210px;
+    }
+
+    .density-compact .message.user {
+      --pad-top: 108px;
+      --pad-bottom: 84px;
+    }
+
+    @media (max-width: 1080px) {
+      .app {
+        grid-template-columns: 52px minmax(0, 1fr);
+        grid-template-rows: 52px minmax(0, 1fr) 78px;
+      }
+
+      .sidebar,
+      .rightbar { display: none; }
+
+      .chat-shell { grid-column: 2 / 3; }
+      .composer { grid-column: 2 / 3; }
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .rail { display: none; }
+      .chat-shell,
+      .composer { grid-column: 1 / 2; }
+      .brand { min-width: 0; }
+      .brand span { display: none; }
+      .chat-header { align-items: flex-start; flex-direction: column; }
+      .messages { padding: 16px 8px 24px; }
+      .message,
+      .message.user {
+        width: 100%;
+        --pad-x: 54px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>禁果酒馆 Forbidden Apple Tavern</span>
+      </div>
+      <div class="top-actions" aria-label="toolbar">
+        <button class="icon-btn active" title="Chat">✦</button>
+        <button class="icon-btn" title="Characters">☰</button>
+        <button class="icon-btn" title="Settings">⚙</button>
+        <button class="icon-btn" title="Extensions">⌘</button>
+      </div>
+    </header>
+
+    <nav class="rail" aria-label="main navigation">
+      <button class="icon-btn active" title="Chat">✦</button>
+      <button class="icon-btn" title="Lore">✎</button>
+      <button class="icon-btn" title="Images">▧</button>
+      <button class="icon-btn" title="Theme">◈</button>
+      <button class="icon-btn" title="More">⋯</button>
+    </nav>
+
+    <aside class="sidebar">
+      <div class="panel-title">角色与会话</div>
+      <div class="persona-list">
+        <div class="persona active">
+          <div class="avatar"></div>
+          <div><strong>Apple Keeper</strong><span>当前会话 · 34 条消息</span></div>
+        </div>
+        <div class="persona">
+          <div class="avatar"></div>
+          <div><strong>Snake Archivist</strong><span>藤蔓记录员</span></div>
+        </div>
+        <div class="persona">
+          <div class="avatar"></div>
+          <div><strong>Ribbon Host</strong><span>酒馆招待</span></div>
+        </div>
+        <div class="persona">
+          <div class="avatar"></div>
+          <div><strong>Wax Seal</strong><span>主题验收样例</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="chat-shell">
+      <section class="chat-header">
+        <div class="chat-title">
+          <strong>Forbidden Apple Tavern Preview</strong>
+          <span>三段式 hosted PNG 聊天框 · char/user 分色 · 长短消息拉伸测试</span>
+        </div>
+        <div class="segmented" aria-label="preview density">
+          <button class="active" type="button" data-density="roomy">舒展</button>
+          <button type="button" data-density="compact">紧凑</button>
+        </div>
+      </section>
+
+      <section class="messages" aria-label="chat messages">
+        <article class="message char">
+          <div class="message-inner">
+            <div class="message-name">Assistant <span>2026/5/19 19:30</span></div>
+            <p>欢迎回到禁果酒馆。这个页面使用 GitHub raw 外链作为图床，聊天框的 top、middle、bottom 三张 PNG 都从外部地址加载。</p>
+            <p>顶部苹果、蕾丝和藤线固定在上段；正文只压在中间纸面上；底部蜡封、叶片和边框固定在下段。</p>
+          </div>
+        </article>
+
+        <article class="message user">
+          <div class="message-inner">
+            <div class="message-name">User <span>2026/5/19 19:31</span></div>
+            <p>红色 user 框靠右显示，右上苹果皮和右下丝带不会被正文纵向拉坏。</p>
+          </div>
+        </article>
+
+        <article class="message char">
+          <div class="message-inner">
+            <div class="message-name">Assistant <span>2026/5/19 19:32</span></div>
+            <p>这是一条更长的测试消息，用来观察中间纸面的纵向扩展。真实聊天里，角色回复可能会有很多段文字、设定说明、动作描写和对话内容，所以框体不能像整张 PNG 那样被强行拉伸。</p>
+            <p>当前方案把装饰区域和可伸缩区域分开：中段只承担纸张纹理和左右细边，复杂装饰全部留给固定的顶部和底部。</p>
+            <p>如果后面继续精修，重点应该是接缝遮盖、移动端内边距，以及把这套视觉规则进一步同步到 SillyTavern 的主题覆盖文件。</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="rightbar">
+      <div class="panel-title">主题验收</div>
+      <div class="setting-list">
+        <div class="setting">
+          <strong>图床模式</strong>
+          <span>GitHub raw hosted assets</span>
+          <div class="switch"><span>外链图片</span><div class="toggle"></div></div>
+        </div>
+        <div class="setting">
+          <strong>聊天框结构</strong>
+          <span>top / middle / bottom</span>
+          <div class="switch"><span>三段拉伸</span><div class="toggle"></div></div>
+        </div>
+        <div class="setting">
+          <strong>角色框</strong>
+          <span>绿色奶油纸面</span>
+          <div class="switch"><span>char 独立</span><div class="toggle"></div></div>
+        </div>
+        <div class="setting">
+          <strong>用户框</strong>
+          <span>红色丝带纸面</span>
+          <div class="switch"><span>user 独立</span><div class="toggle"></div></div>
+        </div>
+      </div>
+    </aside>
+
+    <form class="composer">
+      <button class="icon-btn" type="button" title="Attach">＋</button>
+      <textarea aria-label="message input">咬一口苹果，再写下这句私语。</textarea>
+      <button class="send" type="button">发送</button>
+    </form>
+  </div>
+
+  <script>
+    const app = document.querySelector("#app");
+    document.querySelectorAll("[data-density]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-density]").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        app.classList.toggle("density-compact", button.dataset.density === "compact");
+      });
+    });
+  </script>
+</body>
+</html>

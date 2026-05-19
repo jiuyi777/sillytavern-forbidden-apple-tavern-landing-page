@@ -1,0 +1,213 @@
+# Forbidden Apple Tavern Catbox Assets
+
+Preview: https://files.catbox.moe/v47mdq.png
+
+```css
+/* ===== Forbidden Apple Tavern PNG sticker icon overrides START ===== */
+:root {
+  --fa-icon-settings: url("https://files.catbox.moe/2u1tdd.png");
+  --fa-icon-character: url("https://files.catbox.moe/2siwmd.png");
+  --fa-icon-chat: url("https://files.catbox.moe/pir3s7.png");
+  --fa-icon-world-book: url("https://files.catbox.moe/jngcj5.png");
+  --fa-icon-extensions: url("https://files.catbox.moe/ryhjt6.png");
+  --fa-icon-image: url("https://files.catbox.moe/gx1i6t.png");
+  --fa-icon-font: url("https://files.catbox.moe/hlh3op.png");
+  --fa-icon-script: url("https://files.catbox.moe/y12rkg.png");
+  --fa-icon-favorites: url("https://files.catbox.moe/umnap9.png");
+  --fa-icon-send-arrow: url("https://files.catbox.moe/v0tl94.png");
+  --fa-icon-send-envelope: url("https://files.catbox.moe/6fnam2.png");
+  --fa-icon-send-quill: url("https://files.catbox.moe/2c5lrw.png");
+}
+
+#top-settings-holder .drawer-icon {
+  position: relative !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  margin: 0 1px !important;
+  overflow: visible !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0.94 !important;
+}
+
+#top-settings-holder .drawer-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -2px !important;
+  left: -2px !important;
+  top: -2px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  clip-path: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-image: var(--fa-icon-settings) !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: drop-shadow(0 4px 5px rgba(94, 10, 13, 0.18));
+}
+
+#top-settings-holder .drawer-icon::after {
+  display: none !important;
+  content: none !important;
+}
+
+#top-settings-holder .drawer-icon:hover,
+#top-settings-holder .drawer .drawer-icon.openIcon {
+  opacity: 1 !important;
+  transform: translateY(-1px) scale(1.1) !important;
+  filter: drop-shadow(0 8px 12px rgba(94, 10, 13, 0.25));
+}
+
+#top-settings-holder .drawer-icon.fa-sliders::before,
+#top-settings-holder .drawer-icon.fa-sliders-h::before,
+#top-settings-holder .drawer-icon.fa-gear::before,
+#top-settings-holder .drawer-icon.fa-cog::before { background-image: var(--fa-icon-settings) !important; }
+
+#top-settings-holder .drawer-icon.fa-user::before,
+#top-settings-holder .drawer-icon.fa-user-cog::before,
+#top-settings-holder .drawer-icon.fa-id-card::before,
+#top-settings-holder .drawer-icon.fa-address-card::before { background-image: var(--fa-icon-character) !important; }
+
+#top-settings-holder .drawer-icon.fa-comments::before,
+#top-settings-holder .drawer-icon.fa-comment::before,
+#top-settings-holder .drawer-icon.fa-message::before,
+#top-settings-holder .drawer-icon.fa-face-smile::before { background-image: var(--fa-icon-chat) !important; }
+
+#top-settings-holder .drawer-icon.fa-book-atlas::before,
+#top-settings-holder .drawer-icon.fa-book::before,
+#top-settings-holder .drawer-icon.fa-book-open::before { background-image: var(--fa-icon-world-book) !important; }
+
+#top-settings-holder .drawer-icon.fa-plug::before,
+#top-settings-holder .drawer-icon.fa-plug-circle-exclamation::before,
+#top-settings-holder .drawer-icon.fa-puzzle-piece::before,
+#top-settings-holder .drawer-icon.fa-cubes::before { background-image: var(--fa-icon-extensions) !important; }
+
+#top-settings-holder .drawer-icon.fa-panorama::before,
+#top-settings-holder .drawer-icon.fa-image::before { background-image: var(--fa-icon-image) !important; }
+
+#top-settings-holder .drawer-icon.fa-font::before { background-image: var(--fa-icon-font) !important; }
+
+#top-settings-holder .drawer-icon.fa-bars-progress::before,
+#top-settings-holder .drawer-icon.fa-code::before,
+#top-settings-holder .drawer-icon.fa-scroll::before,
+#top-settings-holder .drawer-icon.fa-terminal::before { background-image: var(--fa-icon-script) !important; }
+
+#top-settings-holder .drawer-icon.fa-star::before,
+#top-settings-holder .drawer-icon.fa-bookmark::before,
+#top-settings-holder .drawer-icon.fa-heart::before { background-image: var(--fa-icon-favorites) !important; }
+
+#send_form #send_but,
+#send_form #mes_continue,
+#send_form #options_button,
+#send_form .stscript_btn {
+  position: relative !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  overflow: visible !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#send_form #send_but::before,
+#send_form #mes_continue::before,
+#send_form #options_button::before,
+#send_form .stscript_btn::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -7px !important;
+  left: -7px !important;
+  top: -7px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: drop-shadow(0 5px 7px rgba(94, 10, 13, 0.20));
+}
+
+#send_form #send_but::before { background-image: var(--fa-icon-send-arrow) !important; }
+#send_form #mes_continue::before { background-image: var(--fa-icon-send-envelope) !important; }
+#send_form #options_button::before,
+#send_form .stscript_btn::before { background-image: var(--fa-icon-send-quill) !important; }
+
+#send_form #send_but::after,
+#send_form #mes_continue::after,
+#send_form #options_button::after,
+#send_form .stscript_btn::after {
+  display: none !important;
+  content: none !important;
+}
+
+#send_form #send_but:hover,
+#send_form #mes_continue:hover,
+#send_form #options_button:hover,
+#send_form .stscript_btn:hover {
+  transform: translateY(-1px) scale(1.07) !important;
+  filter: drop-shadow(0 7px 10px rgba(94, 10, 13, 0.24));
+  background: transparent !important;
+}
+
+@media screen and (max-width: 700px) {
+  #top-settings-holder .drawer-icon {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+  }
+
+  #top-settings-holder .drawer-icon::before {
+    inset: -2px !important;
+    left: -2px !important;
+    top: -2px !important;
+  }
+
+  #send_form #send_but,
+  #send_form #mes_continue,
+  #send_form #options_button,
+  #send_form .stscript_btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+  }
+}
+/* ===== Forbidden Apple Tavern PNG sticker icon overrides END ===== */
+```
+
+| Asset | URL |
+|---|---|
+| `contact-sheet-final.png` | https://files.catbox.moe/v47mdq.png |
+| `drawer-character.png` | https://files.catbox.moe/2siwmd.png |
+| `drawer-chat.png` | https://files.catbox.moe/pir3s7.png |
+| `drawer-extensions.png` | https://files.catbox.moe/ryhjt6.png |
+| `drawer-favorites.png` | https://files.catbox.moe/umnap9.png |
+| `drawer-font.png` | https://files.catbox.moe/hlh3op.png |
+| `drawer-image.png` | https://files.catbox.moe/gx1i6t.png |
+| `drawer-script.png` | https://files.catbox.moe/y12rkg.png |
+| `drawer-settings.png` | https://files.catbox.moe/2u1tdd.png |
+| `drawer-world-book.png` | https://files.catbox.moe/jngcj5.png |
+| `send-arrow.png` | https://files.catbox.moe/v0tl94.png |
+| `send-envelope.png` | https://files.catbox.moe/6fnam2.png |
+| `send-quill.png` | https://files.catbox.moe/2c5lrw.png |

@@ -1,0 +1,122 @@
+﻿/* ===== Forbidden Apple Tavern P2 card pass START ===== */
+:root {
+  --fa-card-border: rgba(96, 25, 26, 0.34);
+  --fa-card-border-soft: rgba(143, 31, 36, 0.18);
+  --fa-card-blue-shadow: rgba(108, 132, 146, 0.12);
+  --fa-card-paper-top: rgba(255, 254, 248, 0.94);
+  --fa-card-paper-bottom: rgba(245, 236, 216, 0.90);
+}
+
+#top-settings-holder .drawer-icon {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  margin: 0 3px !important;
+}
+
+#top-settings-holder .drawer-icon::before {
+  inset: -5px !important;
+  left: -5px !important;
+  top: -5px !important;
+}
+
+#top-settings-holder .drawer-icon:hover,
+#top-settings-holder .drawer .drawer-icon.openIcon {
+  transform: translateY(-1px) scale(1.08) !important;
+}
+
+#chat,
+.drawer-content,
+.options-content {
+  border: 3px solid var(--fa-card-border) !important;
+  background:
+    linear-gradient(180deg, var(--fa-card-paper-top) 0%, rgba(255, 249, 238, 0.92) 44%, var(--fa-card-paper-bottom) 100%),
+    radial-gradient(circle at 7% 14%, rgba(143, 31, 36, 0.06) 0 42px, transparent 43px),
+    radial-gradient(circle at 94% 88%, rgba(48, 74, 53, 0.07) 0 58px, transparent 59px) !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.70),
+    8px 8px 0 rgba(96, 25, 26, 0.06),
+    0 16px 34px rgba(74, 36, 25, 0.10) !important;
+}
+
+.mes .mes_block {
+  border: 3px solid var(--fa-card-border) !important;
+  border-radius: 24px !important;
+  background:
+    linear-gradient(180deg, rgba(255, 254, 248, 0.96) 0%, rgba(255, 249, 238, 0.92) 46%, rgba(244, 235, 214, 0.90) 100%),
+    radial-gradient(circle at 98% 88%, rgba(143, 31, 36, 0.08), transparent 22%) !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.70),
+    6px 6px 0 rgba(96, 25, 26, 0.07),
+    0 10px 24px rgba(74, 36, 25, 0.10) !important;
+}
+
+.mes[is_user="true"] .mes_block {
+  border-color: rgba(143, 31, 36, 0.40) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 254, 248, 0.96) 0%, rgba(254, 242, 229, 0.92) 48%, rgba(243, 223, 207, 0.90) 100%),
+    radial-gradient(circle at 98% 88%, rgba(143, 31, 36, 0.10), transparent 22%) !important;
+}
+
+.mes[is_user="false"] .mes_block {
+  border-color: rgba(78, 92, 70, 0.34) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 254, 248, 0.96) 0%, rgba(249, 244, 228, 0.92) 48%, rgba(235, 228, 205, 0.90) 100%),
+    radial-gradient(circle at 98% 88%, rgba(48, 74, 53, 0.09), transparent 22%) !important;
+}
+
+.mes .mes_block::before {
+  width: 66px !important;
+  height: 20px !important;
+  top: -13px !important;
+  border: 3px solid var(--fa-card-border-soft) !important;
+  border-top: 0 !important;
+  background: linear-gradient(180deg, rgba(255, 254, 248, 0.92), rgba(244, 235, 214, 0.88)) !important;
+}
+
+#send_form {
+  border: 3px solid var(--fa-card-border) !important;
+  border-bottom: 0 !important;
+  background:
+    linear-gradient(180deg, rgba(255, 254, 248, 0.94) 0%, rgba(255, 248, 234, 0.92) 54%, rgba(240, 229, 209, 0.90) 100%) !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.70),
+    0 -10px 22px rgba(74, 36, 25, 0.10) !important;
+}
+
+#send_textarea,
+.drawer-content input,
+.drawer-content textarea,
+.drawer-content select,
+.drawer-content .text_pole {
+  border: 2px solid rgba(96, 25, 26, 0.24) !important;
+  background: linear-gradient(180deg, rgba(255, 254, 250, 0.98), rgba(247, 241, 229, 0.94)) !important;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.66) !important;
+}
+
+.menu_button,
+.interactable,
+.mes_button,
+.drawer-content .inline-drawer-header,
+.drawer-content .inline-drawer-toggle {
+  border-width: 2px !important;
+  border-color: rgba(96, 25, 26, 0.24) !important;
+  background: linear-gradient(180deg, rgba(255, 254, 250, 0.82), rgba(247, 239, 224, 0.76)) !important;
+}
+
+@media screen and (max-width: 700px) {
+  #top-settings-holder .drawer-icon {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+
+  #top-settings-holder .drawer-icon::before {
+    inset: -4px !important;
+    left: -4px !important;
+    top: -4px !important;
+  }
+}
+/* ===== Forbidden Apple Tavern P2 card pass END ===== */

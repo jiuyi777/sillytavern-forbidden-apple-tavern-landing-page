@@ -1,0 +1,71 @@
+/* Forbidden Apple Tavern stretchable chat frames.
+   Green frame is char/assistant, red frame is user.
+   This is a standalone override snippet for testing or later theme import. */
+
+:root {
+  --fa-char-chat-frame-image: url("https://files.catbox.moe/7gi8jf.png");
+  --fa-user-chat-frame-image: url("https://files.catbox.moe/e6idxz.png");
+}
+
+.mes .mes_block {
+  position: relative !important;
+  width: min(100%, 660px) !important;
+  height: auto !important;
+  min-height: 116px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  padding: 10px 18px 12px !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  border-width: 58px 62px 66px 62px !important;
+  border-image-source: var(--fa-char-chat-frame-image) !important;
+  border-image-slice: 150 126 132 126 fill !important;
+  border-image-width: 58px 62px 66px 62px !important;
+  border-image-outset: 4px !important;
+  border-image-repeat: stretch !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 12px 18px rgba(74, 36, 25, 0.16)) !important;
+}
+
+.mes[is_user="false"] .mes_block {
+  margin-right: auto !important;
+}
+
+.mes[is_user="true"] .mes_block {
+  width: min(100%, 560px) !important;
+  margin-left: auto !important;
+  min-height: 120px !important;
+  border-width: 54px 72px 64px 54px !important;
+  border-image-source: var(--fa-user-chat-frame-image) !important;
+  border-image-slice: 110 130 118 96 fill !important;
+  border-image-width: 54px 72px 64px 54px !important;
+  border-image-outset: 4px !important;
+}
+
+.mes .mes_block::before,
+.mes .mes_block::after {
+  display: none !important;
+}
+
+.mes .ch_name,
+.mes .mes_text {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.mes .ch_name {
+  margin-top: -18px !important;
+  margin-bottom: 8px !important;
+}
+
+.mes[is_user="true"] .ch_name {
+  margin-top: -14px !important;
+}
+
+.mes .mes_text {
+  font-size: 15px !important;
+  line-height: 1.62 !important;
+  padding: 0 !important;
+}

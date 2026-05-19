@@ -1,0 +1,14 @@
+{
+  "host": "github-raw",
+  "repository": "jiuyi777/sillytavern-forbidden-apple-tavern-landing-page",
+  "branch": "main",
+  "note": "Catbox upload was attempted first, but the connection was reset by catbox.moe from this environment. GitHub raw URLs are used as the image host for the complete demo.",
+  "assets": {
+    "charTop": "https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-top.png",
+    "charMiddle": "https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-middle.png",
+    "charBottom": "https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-char-bottom.png",
+    "userTop": "https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-top.png",
+    "userMiddle": "https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-middle.png",
+    "userBottom": "https://raw.githubusercontent.com/jiuyi777/sillytavern-forbidden-apple-tavern-landing-page/main/chat-frame-assets/generated-three-slice-v5/forbidden-apple-user-bottom.png"
+  }
+}
