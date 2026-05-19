@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forbidden Apple Tavern Icon Showcase</title>
+  <style>
+    :root {
+      --ink: #2a1714;
+      --muted: #72534a;
+      --red: #8f1f24;
+      --red-dark: #4e1114;
+      --green: #304a35;
+      --paper: #fff8ea;
+      --line: rgba(78, 17, 20, .22);
+      --shadow: rgba(74, 36, 25, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 8% 18%, rgba(143, 31, 36, .10) 0 72px, transparent 74px),
+        radial-gradient(circle at 90% 84%, rgba(48, 74, 53, .12) 0 90px, transparent 92px),
+        linear-gradient(135deg, #fffaf2 0%, #f3e4cf 54%, #e2d2bd 100%);
+    }
+
+    body {
+      padding: 32px clamp(14px, 4vw, 48px) 44px;
+    }
+
+    .wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      color: var(--red-dark);
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .pill {
+      border: 1px solid rgba(96, 25, 26, .24);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--red-dark);
+      background: rgba(255, 253, 247, .74);
+      white-space: nowrap;
+      font-weight: 800;
+      box-shadow: 0 6px 16px rgba(74, 36, 25, .08);
+    }
+
+    .section {
+      border: 2px solid rgba(96, 25, 26, .22);
+      border-radius: 18px;
+      padding: clamp(16px, 3vw, 26px);
+      margin-bottom: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .90), rgba(255, 248, 234, .82)),
+        radial-gradient(circle at 6% 12%, rgba(143, 31, 36, .06), transparent 34%);
+      box-shadow:
+        inset 0 0 0 2px rgba(255, 255, 255, .62),
+        8px 8px 0 rgba(96, 25, 26, .05),
+        0 16px 34px rgba(74, 36, 25, .10);
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      color: var(--red-dark);
+      font-size: 20px;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .icon-card {
+      min-width: 0;
+      border: 1px solid rgba(96, 25, 26, .16);
+      border-radius: 12px;
+      padding: 14px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .70), rgba(249, 236, 216, .70));
+      box-shadow: 0 10px 22px rgba(74, 36, 25, .08);
+    }
+
+    .icon-stage {
+      min-height: 150px;
+      border: 1px dashed rgba(96, 25, 26, .20);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(45deg, rgba(255,255,255,.52) 25%, transparent 25% 75%, rgba(255,255,255,.52) 75%),
+        linear-gradient(45deg, rgba(255,255,255,.52) 25%, transparent 25% 75%, rgba(255,255,255,.52) 75%);
+      background-position: 0 0, 10px 10px;
+      background-size: 20px 20px;
+    }
+
+    .icon-stage img {
+      display: block;
+      max-width: min(96px, 70%);
+      max-height: 96px;
+      filter: drop-shadow(0 9px 10px rgba(74, 36, 25, .18));
+    }
+
+    .wide img {
+      max-width: min(132px, 80%);
+    }
+
+    .icon-card h3 {
+      margin: 12px 0 4px;
+      color: var(--red-dark);
+      font-size: 15px;
+    }
+
+    .icon-card code {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .toolbar-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid rgba(96, 25, 26, .18);
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(247,229,206,.72));
+    }
+
+    .toolbar-demo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      padding: 4px;
+      border: 1px solid rgba(96, 25, 26, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .80);
+      box-shadow: 0 6px 12px rgba(74, 36, 25, .10);
+    }
+
+    @media (max-width: 860px) {
+      header { display: block; }
+      .pill { display: inline-block; margin-top: 12px; }
+      .icon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .icon-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>禁果酒馆九个顶部图案</h1>
+        <p class="subtitle">这是 `forbidden-apple-tavern-catbox-icon-overrides.css` 里那组 9 个抽屉图标，下面另附 3 个发送区图标。</p>
+      </div>
+      <div class="pill">Catbox hosted PNG</div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">九个顶部抽屉图案</h2>
+      <div class="toolbar-demo" aria-label="toolbar icon strip">
+        <img src="https://files.catbox.moe/2u1tdd.png" alt="设置">
+        <img src="https://files.catbox.moe/2siwmd.png" alt="角色">
+        <img src="https://files.catbox.moe/pir3s7.png" alt="聊天">
+        <img src="https://files.catbox.moe/jngcj5.png" alt="世界书">
+        <img src="https://files.catbox.moe/ryhjt6.png" alt="扩展">
+        <img src="https://files.catbox.moe/gx1i6t.png" alt="图片">
+        <img src="https://files.catbox.moe/hlh3op.png" alt="字体">
+        <img src="https://files.catbox.moe/y12rkg.png" alt="脚本">
+        <img src="https://files.catbox.moe/umnap9.png" alt="收藏">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">逐个查看</h2>
+      <div class="icon-grid">
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/2u1tdd.png" alt="Settings"></div><h3>Settings 设置</h3><code>2u1tdd.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/2siwmd.png" alt="Character"></div><h3>Character 角色</h3><code>2siwmd.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/pir3s7.png" alt="Chat"></div><h3>Chat 聊天</h3><code>pir3s7.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/jngcj5.png" alt="World Book"></div><h3>World Book 世界书</h3><code>jngcj5.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/ryhjt6.png" alt="Extensions"></div><h3>Extensions 扩展</h3><code>ryhjt6.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/gx1i6t.png" alt="Image"></div><h3>Image 图片</h3><code>gx1i6t.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/hlh3op.png" alt="Font"></div><h3>Font 字体</h3><code>hlh3op.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/y12rkg.png" alt="Script"></div><h3>Script 脚本</h3><code>y12rkg.png</code></article>
+        <article class="icon-card"><div class="icon-stage"><img src="https://files.catbox.moe/umnap9.png" alt="Favorites"></div><h3>Favorites 收藏</h3><code>umnap9.png</code></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">发送区三个图案</h2>
+      <div class="icon-grid">
+        <article class="icon-card"><div class="icon-stage wide"><img src="https://files.catbox.moe/v0tl94.png" alt="Send arrow"></div><h3>Send Arrow 发送</h3><code>v0tl94.png</code></article>
+        <article class="icon-card"><div class="icon-stage wide"><img src="https://files.catbox.moe/6fnam2.png" alt="Continue envelope"></div><h3>Envelope 继续</h3><code>6fnam2.png</code></article>
+        <article class="icon-card"><div class="icon-stage wide"><img src="https://files.catbox.moe/2c5lrw.png" alt="Quill"></div><h3>Quill 选项/脚本</h3><code>2c5lrw.png</code></article>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
